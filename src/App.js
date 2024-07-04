@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/header';
+import HomePage from './pages/HomePage';
+import Problems from './pages/Problems';
+import Question from './components/QuestionInterface';
+import Visualization from './pages/VisualizationPage';
+import TopicsList from './components/topicList';
+import TestPage from './pages/test';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+            <Header />
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/journey" element={<TestPage />} />
+                <Route path="/Ask-the-tutor" element={<Visualization />} />
+                <Route path="/problems" element={<TopicsList />} />
+                <Route path="/generate-test/:topic" element={<Problems />} />
+            </Routes>
+        </div>
+    );
 }
 
 export default App;
